@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load staticfiles%}
+{% block menu %}
+<div class="menu">
+        <ul class="menu">
+            <li class="menu"><a class="active" href="{%url 'home'%}"><b>Home</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'articles'%}"><b>News</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'history'%}"><b>History</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'technique'%}"><b>Technique</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'record'%}"><b>Record</b></a></li>
+            {% if username%}
+                <li class="menu"><a class="menu" href="/auth/logout/">Logout ({{username}})</a></li>
+            {% else %}
+                <li class="menu"><a class="menu" href="/auth/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{%endblock%}
+{% block center %}
+<div class="center">
+        <h1>Вітаємо, на нашому сайті!</h1>
+        <p>
+            Спортивне плавання — вид спорту, в якому метою є якнайшвидше проплисти зазначену відстань, не порушуючи при цьому техніки способу плавання, який використовується. Спортивне плавання почало набувати популярності ще в XIX столітті. Плавання з 1896 року є олімпійським видом спорту (Плавання на Олімпійських іграх).
+        </p>
+        <video width="640" height="480" controls> <source src="{%static 'static/video/riomedley.mp4'%}" type="video/mp4"> </video>
+    </div>
+{% endblock %}

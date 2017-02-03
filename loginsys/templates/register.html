@@ -1,0 +1,10 @@
+{% extends 'main.html'%}
+{%block login%}
+    <div class="center">
+        <form action="/auth/register/" method="get">
+            {{form}}
+            <br>
+            <input class="button" type="submit" value="Registrate">
+        </form>
+    </div>
+{%endblock%}

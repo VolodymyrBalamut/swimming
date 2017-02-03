@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load staticfiles%}
+{% block menu %}
+<div class="menu">
+        <ul class="menu">
+            <li class="menu"><a class="menu" href="{%url 'home'%}"><b>Home</b></a></li>
+            <li class="menu"><a class="active" href="{%url 'articles'%}"><b>News</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'history'%}"><b>History</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'technique'%}"><b>Technique</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'record'%}"><b>Record</b></a></li>
+            {% if username%}
+                <li class="menu"><a class="menu" href="/auth/logout/">Logout ({{username}})</a></li>
+            {% else %}
+                <li class="menu"><a class="menu" href="/auth/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{%endblock%}
+{% block center %}
+<div class="center">
+        <div class = "large-4 columns">
+            <img src="{{article.article_image.url}}" style="width:360px;height:auto">
+        </div>
+        <div class="large-8 columns">
+            <h4>{{article.article_date}}</h4>
+            <h2><a href = "/articles/{{ article.id }}/">{{article.article_title}}</a></h2>
+            <br>
+            <p>{{article.article_text}}</p>
+            <a href = "/articles/addlike/{{ article.id }}" style="margin-left:90%"><img src="{%static 'static/picture/like.png'%}" style="width:25px;height:25px;margin-right:0"></a>{{article.article_like}}
+        </div>
+    {% for comment in comments %}
+        <br>
+        <p style="margin-bottom:0px">{{comment.comments_date}}</p>
+        <hr>
+        <p style="margin-left:50px">{{comment.comments_text}}</p>
+        <br>
+    {%endfor%}
+    <form action="/articles/addcomment/{{ article.id }}/" method="post">{% csrf_token %}
+        {{form}}
+        <input type="submit" class="button" value="Add Comment">
+    </form>
+    </div>
+</div>
+{% endblock %}

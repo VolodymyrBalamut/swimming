@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+{% load staticfiles%}
+{% block menu %}
+<div class="menu">
+        <ul class="menu">
+            <li class="menu"><a class="menu" href="{%url 'home'%}"><b>Home</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'articles'%}"><b>News</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'history'%}"><b>History</b></a></li>
+            <li class="menu"><a class="active" href="{%url 'technique'%}"><b>Technique</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'record'%}"><b>Record</b></a></li>
+            {% if username%}
+                <li class="menu"><a class="menu" href="/auth/logout/">Logout ({{username}})</a></li>
+            {% else %}
+                <li class="menu"><a class="menu" href="/auth/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{%endblock%}
+{% block center %}
+<div class ="center">
+    <h1>Styles of swimming</h1>
+    <ul style="font-size:135%">
+    {% for style in styles%}
+        <li><a href="#{{style.style}}" title="Go to {{style.style}}">{{style.style}}</a></li>
+    {%endfor%}
+    </ul>
+    {% for style in styles%}
+    <h2><a name="{{style.style}}"></a>{{style.style}}</h2>
+        <img title="{{style.style}}" style="width:640px;height:320px;float:left;" src="{{style.image.url}}" />
+    <p style="font-size:135%">{{style.info}}</p>
+    {%endfor%}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="center">
+        <h1>Стилі плавання:</h1>
+        <ul style="font-size:135%">
+            <li><a href="#bat" title="Перейти до баттерфляю">Баттерфляй</a></li>
+            <li><a href="#br" title="Перейти до брасу">Брас</a></li>
+            <li><a href="#fr" title="Перейти до вільного стилю">Вільний стиль</a></li>
+            <li><a href="#back" title="Перейти до кролю на спині">Кроль на спині</a></li>
+        </ul>
+        <h2><a name="bat"></a>Баттерфляй</h2>
+        <img title="Раян Лохте" style="width:640px;height:320px;float:left;" src="{%static 'static/picture/RyanLochte-batterfly.jpg'%}" />
+        <p style="font-size:135%">&nbsp&nbsp&nbsp&nbsp<strong>Баттерфляй</strong> — стиль плавання на животі, при якому ліва і права частини тіла повинні здійснювати симетричні і одночасні рухи. Руки здійснюють одночасний могутній гребок певної траєкторії, який помітно підводить корпус плавця над водою, а ноги здійснюють одночасний хвилеподібний рух. Найважчий і енерговитратний стиль плавання. Нетренованому плавцеві зазвичай буває важко навіть просто здійснювати рухи, що не порушують правила стилю. Цей стиль вважається другим за швидкістю після кроля.</p><br /><br /><br />
+        <h2><a name="br"></a>Брас</h2>
+        <img style="width:640px;height:320px;float:left" src="{%static 'static/picture/AdamPeaty-red-hats.jpg'%}" />
+        <p style="font-size:135%">&nbsp&nbsp&nbsp&nbsp<strong>Брас</strong> — стиль плавання на животі, в якому руки подаються одночасно вперед від грудей. Ноги здійснюють одночасний поштовх, під час якого вони згинаються в колінах, проводиться поштовх і в кінці випрямляються. Найповільніший спосіб плавання (оскільки поворотні рухи руками виконуються переважно під водою, а рухи ногами виконуються з перериванням), що при цьому одночасно є найскладнішим з технічної точки зору. Брас має велике прикладне значення: можливість проплисти найбільшу відстань з найменшими енерговитратами, безшумне плавання, плавання під водою.</p><br /><br /><br />
+        <h2><a name="fr"></a>Вільний стиль</h2>
+        <img style="width:640px;height:320px;float:left"  src="{%static 'static/picture/freestyle.jpg'%}" />
+        <p style="font-size:135%">&nbsp&nbsp&nbsp&nbsp<strong>Вільний стиль</strong> — стиль плавання на животі (животом вниз), при якому руки здійснюють гребки поперемінно, а ноги здійснюють поперемінне безперервне підняття/опускання, залишаючись при цьому під розгорненим кутом до тулуба. Найшвидший стиль плавання. Через це, в принципі, і називається вільним стилем: якщо стиль плавання не визначений, всі вибирають кроль як найшвидший стиль плавання.</p><br /><br /><br />
+        <h2><a name="back"></a>Кроль на спині</h2>
+        <img style="width:640px;height:320px;float:left" src="{%static 'static/picture/RyanLochte-underwater.jpg'%}" />
+        <p style="font-size:135%">&nbsp&nbsp&nbsp&nbsp<strong>Кроль на спині</strong> — стиль плавання на спині, який візуально схожий на кроль (руки здійснюють гребки поперемінно, а ноги здійснюють поперемінне безперервне підняття/опускання), але має такі відмінності: людина пливе на спині, а не на животі, і пронос над водою виконується прямою рукою, а не зігнутою, як в кролі. Третій за швидкістю плавання стиль. Особливістю цього способу є те, що людині не треба видихати у воду, оскільки обличчя знаходиться на поверхні.</p><br /><br /><br />
+    </div>

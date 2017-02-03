@@ -1,0 +1,32 @@
+{% extends 'main.html'%}
+{% block menu %}
+<div class="menu">
+        <ul class="menu">
+            <li class="menu"><a class="menu" href="{%url 'home'%}"><b>Home</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'articles'%}"><b>News</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'history'%}"><b>History</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'technique'%}"><b>Technique</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'record'%}"><b>Record</b></a></li>
+            {% if username%}
+                <li class="menu"><a class="menu" href="/auth/logout/">Logout ({{username}})</a></li>
+            {% else %}
+                <li class="menu"><a class="active" href="/auth/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{%endblock%}
+{%block login%}
+    <div class="center">
+        <form action="/auth/login/" method = "get">
+            <label for = "username">Username</label>
+            <input type = "text" name = "username" id = "username">
+            <label for = "password">Password</label>
+            <input type="password" name="password" id="password">
+            {% if login_erroe %}
+                <label class="error">{{login_error}}</label>
+            {%endif%}
+            <input class="button" type="submit" value="Login">
+            <div class = "label round secondary"><a href="/auth/register/">Register</a></div>
+        </form>
+    </div>
+{%endblock%}

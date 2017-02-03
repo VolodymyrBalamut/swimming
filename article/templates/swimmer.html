@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load staticfiles%}
+{% block menu %}
+<div class="menu">
+        <ul class="menu">
+            <li class="menu"><a class="menu" href="{%url 'home'%}"><b>Home</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'articles'%}"><b>News</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'history'%}"><b>History</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'technique'%}"><b>Technique</b></a></li>
+            <li class="menu"><a class="active" href="{%url 'record'%}"><b>Record</b></a></li>
+            {% if username%}
+                <li class="menu"><a class="menu" href="/auth/logout/">Logout ({{username}})</a></li>
+            {% else %}
+                <li class="menu"><a class="menu" href="/auth/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{%endblock%}
+
+{% block center %}
+<div class="center">
+    <div class = "large-4 columns">
+            {% if swimmer.swimmer_image%}
+            <img  src="{{swimmer.swimmer_image.url}}" >{%endif%}
+        </div>
+   <h3>Name: {{swimmer.name}}</h3><br>
+   <h3>Nationality: {{swimmer.nationality}}</h3><br>
+   <h3>Birthday:  {{swimmer.birthday}}</h3>
+</div>
+{% endblock %}

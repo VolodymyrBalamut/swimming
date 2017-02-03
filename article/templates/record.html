@@ -1,0 +1,296 @@
+{% extends 'main.html' %}
+{% load staticfiles%}
+{% block menu %}
+<div class="menu">
+        <ul class="menu">
+            <li class="menu"><a class="menu" href="{%url 'home'%}"><b>Home</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'articles'%}"><b>News</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'history'%}"><b>History</b></a></li>
+            <li class="menu"><a class="menu" href="{%url 'technique'%}"><b>Technique</b></a></li>
+            <li class="menu"><a class="active" href="{%url 'record'%}"><b>Record</b></a></li>
+            {% if username%}
+                <li class="menu"><a class="menu" href="/auth/logout/">Logout ({{username}})</a></li>
+            {% else %}
+                <li class="menu"><a class="menu" href="/auth/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{%endblock%}
+
+<div class="center">
+        <h1>Світові рекорди з плавання</h1>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <caption><h2>50-ти метровий басейн <br />(чоловіки)</h2></caption>
+            <tr>
+                <th>Стиль</th>
+                <th>Дистанція</th>
+                <th>Час</th>
+                <th>Ім'я</th>
+                <th>Національність</th>
+                <th>Дата</th>
+                <th>Змагання</th>
+                <th>Місце</th>
+            </tr>
+            <tr>
+                <td rowspan="6">Вільний стиль</td>
+                <td>50 м</td>
+                <td>20.91</td>
+                <td>Цезар Сіело</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Brazil.svg.png'%}"/> Бразилія</td>
+                <td>18 грудня 2009</td>
+                <td>Чемпіонат Бразилії</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Brazil.svg.png'%}" /> Сан-Паулу, Бразилія</td>
+            </tr>
+            <tr>
+                <td>100 м</td>
+                <td>46.91</td>
+                <td>Цезар Сіело</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Brazil.svg.png'%}"/> Бразилія</td>
+                <td>30 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>200 м</td>
+                <td>1.42.91</td>
+                <td>Пауль Бідерман</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Germany.svg.png'%}" /> Німеччина</td>
+                <td>28 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>400 м</td>
+                <td>3.40.07</td>
+                <td>Пауль Бідерман</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Germany.svg.png'%}" /> Німеччина</td>
+                <td>26 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>800 м</td>
+                <td>7.32.12</td>
+                <td>Чжань Линь</td>
+                <td><img title ="Flag_of_Cina" style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_China.svg.png'%}" /> Китай</td>
+                <td>29 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>1500 м</td>
+                <td>14.31.02</td>
+                <td>Сан Ян</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_China.svg.png'%}" /> Китай</td>
+                <td>04 серпня 2012</td>
+                <td>Олімпійські ігри</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_UK.svg.png'%}" /> Лондон, Велика Британія</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Баттерфляй</td>
+                <td>50 м</td>
+                <td>22.43</td>
+                <td>Рафаель Муньос</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Spain.svg.png'%}" /> Іспанія</td>
+                <td>05 квітня 2009</td>
+                <td>Чемпіонат Іспанії</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Spain.svg.png'%}" /> Малага, Іспанія</td>
+            </tr>
+            <tr>
+                <td>100 м</td>
+                <td>49.82</td>
+                <td>Майкл Фелпс</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>01 серпня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>200 м</td>
+                <td>1.51.51</td>
+                <td>Майкл Фелпс</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>29 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Брас</td>
+                <td>50 м</td>
+                <td>26.42</td>
+                <td>Адам Піті</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_UK.svg.png'%}" /> Велика Британія</td>
+                <td>04 серпня 2015</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Russia.svg.png'%}" /> Казань, Росія</td>
+            </tr>
+            <tr>
+                <td>100 м</td>
+                <td>57.13</td>
+                <td>Адам Піті</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_UK.svg.png'%}" /> Велика Британія</td>
+                <td>07 серпня 2016</td>
+                <td>Олімпійські ігри</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Brazil.svg.png'%}" /> Ріо-де-Женейро, Бразилія</td>
+            </tr>
+            <tr>
+                <td>200 м</td>
+                <td>2.07.01</td>
+                <td>Акіхіро Ямагучі</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Japan.svg.png'%}" /> Японія</td>
+                <td>15 вересня 2012</td>
+                <td>Чемпіонат Японії</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Japan.svg.png'%}" /> Гіф, Японія</td>
+            </tr>
+            <tr>
+                <td rowspan="3">На спині</td>
+                <td>50 м</td>
+                <td>24.04</td>
+                <td>Ліам Тенкок</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_UK.svg.png'%}" /> Велика Британія</td>
+                <td>02 серпня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>100 м</td>
+                <td>51.85</td>
+                <td>Раян Мерфі</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>13 серпня 2016</td>
+                <td>Олімпійські ігри</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Brazil.svg.png'%}" /> Ріо-де-Женейро, Бразилія</td>
+            </tr>
+            <tr>
+                <td>200 м</td>
+                <td>1.51.92</td>
+                <td>Аарон Пірсол</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>31 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Комплекс</td>
+                <td>200 м</td>
+                <td>1.54.00</td>
+                <td>Раян Лохте</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>28 липня 2011</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_China.svg.png'%}" /> Шанхай, Китай</td>
+            </tr>
+            <tr>
+                <td>400 м</td>
+                <td>4.03.84</td>
+                <td>Майкл Фелпс</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>10 серпня 2008</td>
+                <td>Олімпійські ігри</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_China.svg.png'%}" /> Пекін, Китай</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Вільний стиль<br />(естафета)</td>
+                <td>4 по 100 м</td>
+                <td>3.08.24</td>
+                <td>Майкл Фелпс (47.51)<br />Гаррет Вебер-Гейл (47.02)<br />Каллен Джонс (47.65)<br />Джейсон Лезак (46.06)</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>11 серпня 2008</td>
+                <td>Олімпійські ігри</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_China.svg.png'%}" /> Пекін, Китай</td>
+            </tr>
+            <tr>
+                <td>4 по 200 м</td>
+                <td>6.58.55</td>
+                <td>Майкл Фелпс (1.44.49)<br />Рікі Беренс (1.44.13)<br />Девід Уолтерс (1.45.47)<br />Раян Лохте (1.44.46)</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>31 липня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+            <tr>
+                <td>Комплекс</td>
+                <td>4 по 100 м</td>
+                <td>3.27.28</td>
+                <td>Аарон Пирсол (52.19)<br />Ерік Шанто (58.57)<br />Майкл Фелпс (49.72)<br />Девід Уолтерс (46.80)</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_the_United_States.svg.png'%}" /> США</td>
+                <td>02 серпня 2009</td>
+                <td>Чемпіонат Світу</td>
+                <td><img style="height:15px; width:22px" src="{%static 'static/picture/Flag_of_Italy.svg.png'%}" /> Рим, Італія</td>
+            </tr>
+        </table>
+    </div>
+
+{% block center %}
+<div class="center">
+    <h1>World records in swimming</h1>
+    <form action="" method="get">
+        <div class = "large-5 columns">
+            <input type="text" name="filter" placeholder="Search" {%if filter%} value="{{filter}}"{%endif%}></div>
+        <div class = "large-5 columns">
+        <select name="gender">
+                <option value="all">All</option>
+                <option value="men" {%if men and not women%} selected{%endif%}>Men</option>
+                <option value="women" {%if women and not men%} selected{%endif%}>Women</option>
+        </select></div>
+        <div class = "large-2 columns">
+        <input type = "submit" class ="button float-left" value="Filter"></div>
+    </form>
+    {%if men%}
+    <table border="1" cellspacing="0" cellpadding="5">
+            <caption><h2>Long course (men)</h2></caption>
+            <tr>
+                <th>Distance</th>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Nationality</th>
+                <th>Date</th>
+                <th>Meet</th>
+                <th>Location</th>
+            </tr>
+
+            {%for temp in male%}
+            <tr>
+                <td>{{temp.distance.distance}}   {{temp.style.style}}</td>
+                <td>{{temp.record_time}}</td>
+                <td><a href = "{%url 'swimmer' temp.swimmer.id%}">{{temp.swimmer.name}}</a></td>
+                <td><img style="height:15px; width:22px" src="{{temp.swimmer.nationality.country_icon.url}}"/>
+                    <a href="{%url 'country' temp.swimmer.nationality.id%}">{{temp.swimmer.nationality.country_name}}</a></td>
+                <td>{{temp.date}}</td>
+                <td>{{temp.competition}}</td>
+                <td><img style="height:15px; width:22px" src="{{temp.location_country.country_icon.url}}" /> {{temp.location_city}},
+                    <a href="{%url 'country' temp.location_country.id%}">{{temp.location_country}}</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    {%endif%}
+    {%if women%}
+    <table border="1" cellspacing="0" cellpadding="5">
+            <caption><h2>Long course (women)</h2></caption>
+            <tr>
+                <th>Distance</th>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Nationality</th>
+                <th>Date</th>
+                <th>Meet</th>
+                <th>Location</th>
+            </tr>
+
+            {%for temp in female%}
+            <tr>
+                <td>{{temp.distance.distance}}   {{temp.style.style}}</td>
+                <td>{{temp.record_time}}</td>
+                <td><a href = "{%url 'swimmer' temp.swimmer.id%}">{{temp.swimmer.name}}</a></td>
+                <td><img style="height:15px; width:22px" src="{{temp.swimmer.nationality.country_icon.url}}"/>
+                    <a href="{%url 'country' temp.swimmer.nationality.id%}">{{temp.swimmer.nationality.country_name}}</a></td>
+                <td>{{temp.date}}</td>
+                <td>{{temp.competition}}</td>
+                <td><img style="height:15px; width:22px" src="{{temp.location_country.country_icon.url}}" /> {{temp.location_city}},
+                    <a href="{%url 'country' temp.location_country.id%}">{{temp.location_country}}</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    {%endif%}
+</div>
+{% endblock %}

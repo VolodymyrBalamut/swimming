@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swimming.ua</title>
+    <meta name= "keywords" lang="ua" content="плавання,батерфляй,вільний стиль,кроль,брас,спина" />
+    <meta name="description" content="Історія плавання, техніка плавання,спортивні розряди" />
+    <meta http-equiv="Content_Style_Type" content="text/CSS" />
+    <link rel="stylesheet" type = "text/css" href="{%static 'static/css/foundation.css'%}">
+    <link rel="stylesheet" type = "text/css" href="{%static 'static/styles.css'%}">
+</head>
+<body>
+    <div class="top">
+        <img style ="margin-right:0%" src="{%static 'static/picture/Underwater.jpg'%}" />
+        <img style ="width:auto;height:auto;position:absolute;top:200px;left:10px" src="{%static 'static/picture/LOGO4.png'%}" />
+    </div>
+    {% block menu %}{% endblock %}
+    {% block center %}{% endblock %}
+    {% block login %}{% endblock %}
+    <div class="bottom">
+        <a href="https://www.facebook.com"><img class="bottom" title ="Facebook.com" alt="Facebook" src="{%static 'static/picture/facebook2.ico'%}" /></a>
+        <a href="https://www.twitter.com"><img class="bottom" title ="Twitter.com" alt="Twitter.com" src="{%static 'static/picture/Twitter.png'%}" /></a>
+        <a href="https://www.vk.com"><img class="bottom" title ="VK.com" alt="VK" src="{%static 'static/picture/VK.png'%}" /></a>
+        <a href="https://plus.google.com/"><img class="bottom" title ="Plus.Google.com" alt="Google+" src="{%static 'static/picture/GooglePlus.png'%}" /></a>
+    </div>
+</body>
+</html>
